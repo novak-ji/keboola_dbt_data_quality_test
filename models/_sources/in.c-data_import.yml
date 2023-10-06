@@ -10,6 +10,7 @@ sources:
       loaded_at_field: '"_timestamp"'
       tables:
         - name: olist_closed_deals_dataset
+          tags: ["test_custom"]
           quoting:
             database: true
             schema: true
@@ -24,6 +25,7 @@ sources:
                 - not_null
   #              - dbt_utils.not_empty_string
         - name: olist_customers_dataset
+          tags: ["test_standard"]
           quoting:
             database: true
             schema: true
@@ -34,6 +36,7 @@ sources:
                 - unique
                 - not_null
         - name: olist_geolocation_dataset
+          tags: ["test_standard"]
           quoting:
             database: true
             schema: true
@@ -44,6 +47,7 @@ sources:
                 - unique
                 - not_null
         - name: olist_marketing_qualified_leads_dataset
+          tags: ["test_standard"]
           quoting:
             database: true
             schema: true
@@ -54,6 +58,7 @@ sources:
                 - unique
                 - not_null
         - name: olist_orders_dataset
+          tags: ["test_standard"]
           quoting:
             database: true
             schema: true
@@ -67,6 +72,7 @@ sources:
                 - accepted_values:
                     values: ['created', 'approved', 'canceled', 'processing', 'shipped', 'delivered', 'invoiced', 'unavailable']
         - name: olist_order_items_dataset
+          tags: ["test_standard"]
           quoting:
             database: true
             schema: true
@@ -93,6 +99,7 @@ sources:
               tests:
                 - not_null
         - name: olist_order_payments_dataset
+          tags: ["test_standard"]
           quoting:
             database: true
             schema: true
@@ -103,6 +110,7 @@ sources:
                 - unique
                 - not_null
         - name: olist_order_reviews_dataset
+          tags: ["test_standard"]
           quoting:
             database: true
             schema: true
@@ -113,6 +121,7 @@ sources:
                 - unique
                 - not_null
         - name: olist_products_dataset
+          tags: ["test_standard"]
           quoting:
             database: true
             schema: true
@@ -123,6 +132,7 @@ sources:
                 - unique
                 - not_null
         - name: olist_sellers_dataset
+          tags: ["test_standard"]
           quoting:
             database: true
             schema: true
@@ -133,6 +143,7 @@ sources:
                 - unique
                 - not_null
         - name: product_category_name_translation
+          tags: ["test_standard"]
           quoting:
             database: true
             schema: true
