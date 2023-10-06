@@ -5,7 +5,7 @@ sources:
         warn_after:
             count: 1
             period: day
-      database: '{{ env_var("DBT_KBC_QA_DEV_DATABASE") }}'
+      #database: '{{ env_var("DBT_KBC_QA_DEV_DATABASE") }}'
       schema: in.c-data_import
       loaded_at_field: '"_timestamp"'
       tables:
