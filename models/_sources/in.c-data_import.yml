@@ -23,7 +23,7 @@ sources:
             - name: '"business_segment"'
               tests:
                 - not_null
-  #              - dbt_utils.not_empty_string
+                - dbt_utils.not_empty_string
         - name: olist_customers_dataset
           tags: ["test_standard"]
           quoting:
