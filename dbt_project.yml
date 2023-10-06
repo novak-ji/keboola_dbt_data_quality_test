@@ -33,4 +33,5 @@ clean-targets:         # directories to be removed by `dbt clean`
 # files using the `{{ config(...) }}` macro.
 models:
   keboola_dbt_data_quality_test:
+#    +schema: WORKSPACE_53187348
     # Config indicated by + and applies to all files under models/example/

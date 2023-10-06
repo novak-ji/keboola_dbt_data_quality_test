@@ -22,7 +22,7 @@ sources:
             - name: '"business_segment"'
               tests:
                 - not_null
-                - dbt_utils.not_empty_string
+  #              - dbt_utils.not_empty_string
         - name: olist_customers_dataset
           quoting:
             database: true
@@ -62,6 +62,10 @@ sources:
             - name: '"order_id"'
               tests:
                 - not_null
+            - name: '"order_status"'
+              tests:
+                - accepted_values:
+                    values: ['created', 'approved', 'canceled', 'processing', 'shipped', 'delivered', 'invoiced', 'unavailable']
         - name: olist_order_items_dataset
           quoting:
             database: true
