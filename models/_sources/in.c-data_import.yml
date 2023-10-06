@@ -1,0 +1,140 @@
+version: 2
+sources:
+    - name: in.c-data_import
+      freshness:
+        warn_after:
+            count: 1
+            period: day
+      database: '{{ env_var("DBT_KBC_QA_DEV_DATABASE") }}'
+      schema: in.c-data_import
+      loaded_at_field: '"_timestamp"'
+      tables:
+        - name: olist_closed_deals_dataset
+          quoting:
+            database: true
+            schema: true
+            identifier: true
+          columns:
+            - name: '"mql_id"'
+              tests:
+                - unique
+                - not_null
+            - name: '"business_segment"'
+              tests:
+                - not_null
+                - dbt_utils.not_empty_string
+        - name: olist_customers_dataset
+          quoting:
+            database: true
+            schema: true
+            identifier: true
+          columns:
+            - name: '"customer_id"'
+              tests:
+                - unique
+                - not_null
+        - name: olist_geolocation_dataset
+          quoting:
+            database: true
+            schema: true
+            identifier: true
+          columns:
+            - name: '"geolocation_zip_code_prefix"'
+              tests:
+                - unique
+                - not_null
+        - name: olist_marketing_qualified_leads_dataset
+          quoting:
+            database: true
+            schema: true
+            identifier: true
+          columns:
+            - name: '"mql_id"'
+              tests:
+                - unique
+                - not_null
+        - name: olist_orders_dataset
+          quoting:
+            database: true
+            schema: true
+            identifier: true
+          columns:
+            - name: '"order_id"'
+              tests:
+                - not_null
+        - name: olist_order_items_dataset
+          quoting:
+            database: true
+            schema: true
+            identifier: true
+          tests:
+            - dbt_utils.unique_combination_of_columns:
+                combination_of_columns:
+                  - order_id
+                  - order_item_id
+                  - product_id
+                  - seller_id
+                quote_columns: true
+          columns:
+            - name: '"order_id"'
+              tests:
+                - not_null
+            - name: '"order_item_id"'
+              tests:
+                - not_null
+            - name: '"product_id"'
+              tests:
+                - not_null
+            - name: '"seller_id"'
+              tests:
+                - not_null
+        - name: olist_order_payments_dataset
+          quoting:
+            database: true
+            schema: true
+            identifier: true
+          columns:
+            - name: '"order_id"'
+              tests:
+                - unique
+                - not_null
+        - name: olist_order_reviews_dataset
+          quoting:
+            database: true
+            schema: true
+            identifier: true
+          columns:
+            - name: '"review_id"'
+              tests:
+                - unique
+                - not_null
+        - name: olist_products_dataset
+          quoting:
+            database: true
+            schema: true
+            identifier: true
+          columns:
+            - name: '"product_id"'
+              tests:
+                - unique
+                - not_null
+        - name: olist_sellers_dataset
+          quoting:
+            database: true
+            schema: true
+            identifier: true
+          columns:
+            - name: '"seller_id"'
+              tests:
+                - unique
+                - not_null
+        - name: product_category_name_translation
+          quoting:
+            database: true
+            schema: true
+            identifier: true
+          columns:
+            - name: '"product_category_name"'
+              tests:
+                - unique
+                - not_null
