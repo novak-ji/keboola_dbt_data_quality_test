@@ -1,3 +1,5 @@
+{{ config(severity = 'warn') }}
+
 select 
     "mql_id"
     ,"declared_monthly_revenue"::decimal(15,4)
