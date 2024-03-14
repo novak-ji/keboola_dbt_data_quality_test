@@ -3,3 +3,4 @@ dbt_packages/
 logs/
 profiles.yml
 models/_sources/in.c-data_import.yml.zip
+.vscode/settings.json

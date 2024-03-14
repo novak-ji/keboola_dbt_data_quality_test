@@ -24,6 +24,10 @@ clean-targets:         # directories to be removed by `dbt clean`
   - "target"
   - "dbt_packages"
 
+#query-comment:
+#  comment: Keboola dbt
+#  append: false
+#  job-label: true
 
 # Configuring models
 # Full documentation: https://docs.getdbt.com/docs/configuring-models
