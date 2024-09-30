@@ -1,0 +1,15 @@
+version: 2
+
+models:
+  - name: create_city_table
+    description: "Table with cities and population"
+    columns:
+      - name: id
+        tests:
+          - unique
+      - name: city
+        tests:
+          - not_null
+      - name: population
+        tests:
+          - not_null
