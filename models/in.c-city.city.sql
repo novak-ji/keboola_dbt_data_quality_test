@@ -20,3 +20,5 @@ WITH test_city AS (
 )
 
 SELECT * FROM test_city
+
+{{ log("Current target is: " ~ target.name, info=True) }}
