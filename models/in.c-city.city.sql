@@ -4,7 +4,7 @@
 
 WITH test_city AS (
     SELECT
-        NULL AS id,
+        1 AS id,
         'Prague' AS city,
         1300000 AS population
     UNION ALL
